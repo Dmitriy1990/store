@@ -1,0 +1,231 @@
+.f {
+  &11 {
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  &12 {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  &14-10 {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  &18-12 {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  &28-18 {
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  &14 {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  &16 {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  &16-22 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  &18 {
+    font-size: 18px;
+  }
+
+  &20 {
+    font-size: 20px;
+  }
+
+  &24 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  &28 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  &32 {
+    font-size: 32px;
+    line-height: 37px;
+  }
+
+  &36 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  &64 {
+    font-size: 64px;
+    line-height: 75px;
+  }
+
+  &-tr {
+    &12 {
+      font-size: 12px;
+      line-height: 14px;
+    }
+
+    &14 {
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    &14-10 {
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    &16 {
+      font-size: 16px;
+      line-height: 18px;
+    }
+
+    &18 {
+      font-size: 18px;
+    }
+
+    &20 {
+      font-size: 20px;
+    }
+
+    &24 {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    &32 {
+      font-size: 32px;
+      line-height: 37px;
+    }
+
+    &48-24 {
+      font-size: 48px;
+      line-height: 52px;
+    }
+
+    &32-14 {
+      font-size: 32px;
+      line-height: 37px;
+    }
+
+    &36-14 {
+      font-size: 36px;
+      line-height: 42px;
+    }
+
+    &96 {
+      font-weight: 200;
+      font-size: 96px;
+      line-height: 112px;
+    }
+  }
+}
+
+.noWrap {
+  white-space: nowrap;
+}
+
+.lh {
+  &20 {
+    line-height: 20px;
+  }
+}
+
+.c {
+  &White {
+    color: white;
+  }
+
+  &White4 {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  &Black {
+    color: black;
+  }
+
+  &Black4 {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  &Black8 {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  &Blue {
+    color: #34b1f7;
+  }
+
+  &Red {
+    color: red;
+  }
+
+  &Green {
+    color: #a5ce71;
+  }
+
+  &Orange {
+    color: #ff9b3f;
+  }
+
+  &Light {
+    color: #868686;
+  }
+}
+
+.weight {
+  &500 {
+    font-weight: 500;
+  }
+
+  &300 {
+    font-weight: 300;
+  }
+
+  &400 {
+    font-weight: 400;
+  }
+
+  &600 {
+    font-weight: bold;
+  }
+
+  &700 {
+    font-weight: 700;
+  }
+
+  &900 {
+    font-weight: 900;
+  }
+}
+
+.align {
+  &-center {
+    text-align: center;
+  }
+
+  &-right {
+    text-align: right;
+  }
+}
+
+.singleLine {
+  white-space: nowrap;
+}
+
+.usn {
+  user-select: none;
+}
