@@ -13,7 +13,6 @@ export const BottomNav = () => {
   return (
     <nav className={styles.nav}>
       <div className={styles.list}>
-        {/* <li className={styles.list__item}> */}
         <NavLink
           to={'/'}
           className={({ isActive }) =>
@@ -21,34 +20,28 @@ export const BottomNav = () => {
           }>
           <IconHome />
         </NavLink>
-        {/* </li>
-        <li className={styles.list__item}> */}
         <NavLink
-          to={'/'}
+          to={routes.search}
           className={({ isActive }) =>
             clsx(isActive ? styles.active : undefined, styles.list__item)
           }>
           <IconSearch />
         </NavLink>
-        {/* </li>
-        <li className={styles.list__item}> */}
         <NavLink
-          to={'/'}
+          to={routes.favorites}
           className={({ isActive }) =>
             clsx(isActive ? styles.active : undefined, styles.list__item)
           }>
           <IconLikeFill className={styles.icon_like} />
         </NavLink>
-        {/* </li>
-        <li className={styles.list__item}> */}
         <NavLink
           to={routes.basket}
           className={({ isActive }) =>
             clsx(isActive ? styles.active : undefined, styles.list__item)
           }>
           <IconBasket />
+          <span className={styles.basket}>2</span>
         </NavLink>
-        {/* </li> */}
       </div>
     </nav>
   );

@@ -1,4 +1,6 @@
 export const routes = {
   main: '/',
-  basket: '/basket'
+  basket: '/basket',
+  search: '/search',
+  favorites: '/favorite'
 };

@@ -13,7 +13,7 @@
     min-height: 80px;
   }
   &_info {
-    padding: 17px 15px 17px;
+    padding: 17px 0;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -33,6 +33,7 @@
     border-radius: 0;
     .product__image {
       max-width: 150px;
+      margin-right: 10px;
     }
     .product__title {
       padding-right: 10px;

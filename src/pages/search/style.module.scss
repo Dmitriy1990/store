@@ -1,0 +1,40 @@
+.form {
+  display: flex;
+  align-items: center;
+  background: rgba(230, 233, 232, 0.43);
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.btn {
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  margin-right: 20px;
+  background: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.field {
+  border: none;
+  color: var(--black);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  width: 100%;
+  background: none;
+  margin-right: 35px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.not-found {
+  text-align: center;
+  padding: 50px 10px;
+  &__icon {
+    margin-bottom: 20px;
+  }
+}

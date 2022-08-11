@@ -10,6 +10,8 @@ import styles from './style.module.scss';
 import { useAppSelector } from '../../store/hooks';
 import { Loader } from '../../components/ui/loader/Loader';
 import clsx from 'clsx';
+import Size from '../../components/ui/size';
+import { sizes } from '../../utils/sizes';
 
 export const ProductPage = () => {
   const { data, loading } = useAppSelector((s) => s.product);
@@ -49,34 +51,20 @@ export const ProductPage = () => {
             </div>
             <p className="mb10">{data.description}</p>
             <p className="mb20 f16-22">{data.fullDescription}</p>
-            <div>
-              <p>Размер</p>
-              <form>
-                <fieldset>
-                  <div>
-                    <input
-                      id="1"
-                      className={clsx(styles.hidden, styles.input)}
-                      type="radio"
-                      disabled
-                    />
-                    <label className={styles.label} htmlFor="1">
-                      43
-                    </label>
-                  </div>
-                  <div>
-                    <input className={clsx(styles.hidden, styles.input)} id="2" type="radio" />
-                    <label className={styles.label} htmlFor="2">
-                      43
-                    </label>
-                  </div>
-                </fieldset>
-              </form>
-            </div>
           </>
         ) : loading ? (
           <Loader />
         ) : null}
+        <div>
+          <p className="mb10">Размер</p>
+          <div className={styles.size}>
+            {sizes.map((s) => (
+              <div key={s}>
+                <Size num={s} />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

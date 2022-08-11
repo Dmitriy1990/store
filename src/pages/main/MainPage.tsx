@@ -8,6 +8,9 @@ import { useAppSelector } from '../../store/hooks';
 import { fetchProducts } from '../../store/productsSlice';
 import { AppDispatch } from '../../store/store';
 import { Loader } from '../../components/ui/loader/Loader';
+import Lottie from 'react-lottie-player';
+import notFound from '../../assets/json/97179-no-data-found.json';
+import { Helmet } from 'react-helmet-async';
 
 export const MainPage = () => {
   const [column, setColumn] = React.useState(false);
@@ -24,6 +27,9 @@ export const MainPage = () => {
 
   return (
     <div className="container">
+      <Helmet>
+        <title>Главная</title>
+      </Helmet>
       <div className="mb50">
         <h2 className="f32 mb10">Главная</h2>
         <div className="mb20">
@@ -41,8 +47,11 @@ export const MainPage = () => {
             </div>
           ) : loading ? (
             <Loader />
-          ) : null}
+          ) : (
+            <Lottie loop={false} animationData={notFound} play className="lottie-loader" />
+          )}
         </div>
+
         <BottomNav />
       </div>
     </div>

@@ -47,3 +47,19 @@
     fill: #000;
   }
 }
+
+.basket {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 3px;
+  border-radius: 50%;
+  border: 1px solid var(--black);
+  font-size: 11px;
+  line-height: 8px;
+  vertical-align: middle;
+  color: var(--black);
+  background: var(--white);
+  min-width: 15px;
+  height: 15px;
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import img from '../../assets/image/products/2.png';
 import clsx from 'clsx';
 import styles from './style.module.scss';
 import { IconLike, noProduct } from '../../assets';
@@ -33,7 +32,7 @@ export const ProductCard: React.FC<Props> = ({ column, item }: Props) => {
             <span className="weight600">{item.price.toLocaleString()} ₽</span>
           </div>
         </div>
-        <div className={styles.discount}>10%</div>
+        {item.discount ? <div className={styles.discount}>{item.discount * 100}%</div> : null}
         <div className={styles.like}>
           <IconLike />
         </div>

@@ -1,0 +1,31 @@
+.label-container {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+}
+
+.item {
+  background: #ffffff;
+  border: 1px solid #d8d8dd;
+  border-radius: 7px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+  width: 55px;
+  height: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.field {
+  cursor: pointer;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  &:checked ~ .item {
+    border: 1px solid #000;
+  }
+}

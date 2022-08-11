@@ -21,29 +21,14 @@
   justify-content: space-between;
 }
 
-.label {
-  background: #ffffff;
-  border: 1px solid #d8d8dd;
-  border-radius: 7px;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 21px;
-  width: 55px;
-  height: 43px;
+.size {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hidden {
-  visibility: hidden;
-}
-
-.input {
-  &:checked + label {
-    border: 1px solid #000;
-  }
-  &:disabled + label {
-    color: #828282;
+  flex-wrap: wrap;
+  > div {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }

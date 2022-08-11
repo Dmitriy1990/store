@@ -5,6 +5,12 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+:root {
+  --white: #fff;
+  --black: #000;
+  --deepDark: #181725;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -12,13 +18,21 @@ a {
 
 .mySwiper {
   .swiper-pagination-bullet {
-    background: #000;
+    background: var(--black);
   }
 }
 
 .products {
   display: flex;
   flex-wrap: wrap;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  &__icon {
+    margin-right: 15px;
+  }
 }
 
 @import './reset.scss';
