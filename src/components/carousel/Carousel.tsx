@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-export const Carousel = () => {
+export const Slides = () => {
   return (
     <div className={styles.swiper}>
       <Swiper
@@ -44,3 +44,5 @@ export const Carousel = () => {
     </div>
   );
 };
+
+export const Carousel = React.memo(Slides);

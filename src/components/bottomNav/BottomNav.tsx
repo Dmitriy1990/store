@@ -6,10 +6,6 @@ import { NavLink } from 'react-router-dom';
 import { routes } from '../../constantes/routes';
 
 export const BottomNav = () => {
-  const style = {
-    borderBottom: '5px solid #000000'
-  };
-  const activeClassName = 'active';
   return (
     <nav className={styles.nav}>
       <div className={styles.list}>
@@ -18,28 +14,28 @@ export const BottomNav = () => {
           className={({ isActive }) =>
             clsx(isActive ? styles.active : undefined, styles.list__item)
           }>
-          <IconHome />
+          <IconHome className="svg" />
         </NavLink>
         <NavLink
           to={routes.search}
           className={({ isActive }) =>
             clsx(isActive ? styles.active : undefined, styles.list__item)
           }>
-          <IconSearch />
+          <IconSearch className="svg svg-stroke" />
         </NavLink>
         <NavLink
           to={routes.favorites}
           className={({ isActive }) =>
             clsx(isActive ? styles.active : undefined, styles.list__item)
           }>
-          <IconLikeFill className={styles.icon_like} />
+          <IconLikeFill className={clsx(styles.icon_like, 'svg')} />
         </NavLink>
         <NavLink
           to={routes.basket}
           className={({ isActive }) =>
             clsx(isActive ? styles.active : undefined, styles.list__item)
           }>
-          <IconBasket />
+          <IconBasket className="svg" />
           <span className={styles.basket}>2</span>
         </NavLink>
       </div>

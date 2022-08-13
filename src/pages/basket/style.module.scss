@@ -14,6 +14,8 @@
   height: 75px;
   width: 100%;
   margin-bottom: 15px;
+  background: var(--bg);
+  color: var(--black);
   &::placeholder {
     font-weight: 400;
     font-size: 16px;
@@ -37,6 +39,8 @@
   border-radius: 5px;
   width: 100%;
   max-width: 200px;
+  background: var(--bg);
+  color: var(--black);
 }
 
 .btn {

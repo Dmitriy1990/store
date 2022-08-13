@@ -11,9 +11,14 @@ export const products = createSlice({
   name: 'products',
   initialState: {
     data: [] as Product[],
-    loading: true
+    loading: true,
+    column: false
   },
-  reducers: {},
+  reducers: {
+    toggleView(state) {
+      state.column = !state.column;
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.fulfilled, (state, actions) => {
       state.loading = false;
@@ -25,5 +30,7 @@ export const products = createSlice({
     });
   }
 });
+
+export const { toggleView } = products.actions;
 
 export default products.reducer;

@@ -5,10 +5,35 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-:root {
+:root[data-theme='light'] {
   --white: #fff;
   --black: #000;
   --deepDark: #181725;
+  --bg: #e5e5e5;
+}
+
+:root[data-theme='dark'] {
+  --white: #000;
+  --black: #fff;
+  --deepDark: #f1f1f1;
+  --bg: #1c1c1c;
+}
+
+body {
+  color: var(--black);
+  background-color: var(--bg);
+}
+
+.svg {
+  path {
+    fill: var(--black);
+  }
+}
+
+.svg-stroke {
+  path {
+    stroke: var(--black);
+  }
 }
 
 a {
@@ -32,6 +57,9 @@ a {
   align-items: center;
   &__icon {
     margin-right: 15px;
+    path {
+      stroke: var(--black);
+    }
   }
 }
 

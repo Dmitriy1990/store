@@ -1,7 +1,7 @@
 .product {
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: var(--white);
   border-radius: 16px;
   overflow: hidden;
   position: relative;
@@ -60,7 +60,7 @@
   line-height: 12px;
   text-align: center;
   letter-spacing: -0.24px;
-  color: #ffffff;
+  color: #fff;
   padding: 4px;
   background: #880e4f;
   border-radius: 10px;

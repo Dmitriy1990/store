@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import BottomNav from '../../components/bottomNav';
 import { Carousel } from '../../components/carousel/Carousel';
 import ProductCard from '../../components/product';
@@ -13,17 +13,12 @@ import notFound from '../../assets/json/97179-no-data-found.json';
 import { Helmet } from 'react-helmet-async';
 
 export const MainPage = () => {
-  const [column, setColumn] = React.useState(false);
-  const { data, loading } = useAppSelector((state) => state.products);
+  const { data, loading, column } = useAppSelector((state) => state.products);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-
-  const changeView = () => {
-    setColumn(!column);
-  };
 
   return (
     <div className="container">
@@ -36,7 +31,7 @@ export const MainPage = () => {
           <Carousel />
         </div>
         <div className="mb20">
-          <TopBar column={column} count={data.length} changeView={changeView} />
+          <TopBar count={data.length} />
         </div>
         <div>
           {data.length && !loading ? (
@@ -51,8 +46,6 @@ export const MainPage = () => {
             <Lottie loop={false} animationData={notFound} play className="lottie-loader" />
           )}
         </div>
-
-        <BottomNav />
       </div>
     </div>
   );
