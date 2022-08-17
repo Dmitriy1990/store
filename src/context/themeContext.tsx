@@ -16,7 +16,6 @@ export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [theme, setTheme] = React.useState<Theme>(
     (localStorage.getItem('theme') as Theme) || 'light'
   );
-  console.log('theme', theme);
   const toggleTheme = () => {
     if (theme === 'light') {
       setTheme('dark');
@@ -34,7 +33,7 @@ export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
     }
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
+    document.documentElement.dataset.theme = mediaQuery.matches ? 'dark' : 'light';
     setTheme(mediaQuery.matches ? 'dark' : 'light');
 
     function onChange(event: MediaQueryListEvent): void {

@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { IconArrowLeft, noProduct } from '../../assets';
 import { routes } from '../../constantes/routes';
 import { AppDispatch } from '../../store/store';
 import { clear, fetchProduct } from '../../store/productSlice';
+import { addToBasket, amountProduct } from '../../store/basketSlice';
 import { Helmet } from 'react-helmet-async';
 import styles from './style.module.scss';
 import { useAppSelector } from '../../store/hooks';
@@ -20,11 +21,15 @@ export const ProductPage = () => {
 
   useEffect(() => {
     if (slug) dispatch(fetchProduct(parseInt(slug)));
+    dispatch(amountProduct(3));
     return () => {
       dispatch(clear());
-      // throw new Error('Counter threw an error!');
     };
   }, [slug]);
+
+  const addToCart = useCallback(() => {
+    if (data) dispatch(addToBasket(data));
+  }, [data]);
 
   return (
     <div className="container mb80">
@@ -66,6 +71,7 @@ export const ProductPage = () => {
           </div>
         </div>
       </div>
+      <button onClick={addToCart}>Add to card</button>
     </div>
   );
 };

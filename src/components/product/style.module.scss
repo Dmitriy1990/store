@@ -13,7 +13,7 @@
     min-height: 80px;
   }
   &_info {
-    padding: 17px 0;
+    padding: 17px 14px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -39,6 +39,9 @@
       padding-right: 10px;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+    .product_info {
+      padding: 17px 0;
     }
   }
 }

@@ -13,7 +13,7 @@ import Filters from '../filters';
 import Sort from '../sort';
 import { Sorted } from '../../types/sort';
 import { useAppSelector } from '../../store/hooks';
-import { toggleView } from '../../store/productsSlice';
+import { toggleView, changeSort } from '../../store/productsSlice';
 import { AppDispatch } from '../../store/store';
 import { useDispatch } from 'react-redux';
 
@@ -24,14 +24,13 @@ type Props = {
 export const TopBar: FC<Props> = ({ count }: Props) => {
   const [openFilter, setOpenFilter] = useState(false);
   const [openSort, setOpenSort] = useState(false);
-  const [sort, setSort] = useState<Sorted>(Sorted.DEFAULT);
-  const { column } = useAppSelector((state) => state.products);
+  const { column, sort } = useAppSelector((state) => state.products);
   const dispatch = useDispatch<AppDispatch>();
 
   const sortedType = useCallback(
     (s: Sorted) => {
       if (sort !== s) {
-        setSort(s);
+        dispatch(changeSort(s));
       }
     },
     [sort]

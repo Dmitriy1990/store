@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import { IconDec, IconPlus, IconTrash, noProduct, IconBasket } from '../../assets';
+import useDebounce from '../../hooks/useDebounce';
 import styles from './style.module.scss';
 
 type Props = {
@@ -7,6 +8,22 @@ type Props = {
 };
 
 export const ProductItem: FC<Props> = ({ favorites }: Props) => {
+  const [count, setCount] = useState(1);
+  const debounce = useDebounce(count, 500);
+  const add = useCallback(() => {
+    setCount(count + 1);
+  }, [count]);
+
+  const dec = useCallback(() => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  }, [count]);
+
+  useEffect(() => {
+    console.log('value deb', debounce);
+  }, [debounce]);
+
   return (
     <div className={styles.product}>
       <img className={styles.product__image} src={noProduct} alt="" />
@@ -19,11 +36,11 @@ export const ProductItem: FC<Props> = ({ favorites }: Props) => {
         {!favorites ? (
           <div className={styles['product-bottom']}>
             <div className={styles.counter}>
-              <button className={styles.counter__btn}>
+              <button className={styles.counter__btn} onClick={dec}>
                 <IconDec />
               </button>
-              <span className={styles.counter__result}>11</span>
-              <button className={styles.counter__btn}>
+              <span className={styles.counter__result}>{count}</span>
+              <button className={styles.counter__btn} onClick={add}>
                 <IconPlus />
               </button>
             </div>

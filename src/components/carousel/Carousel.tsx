@@ -12,7 +12,8 @@ export const Slides = () => {
     <div className={styles.swiper}>
       <Swiper
         pagination={{
-          dynamicBullets: true
+          dynamicBullets: true,
+          clickable: true
         }}
         modules={[Pagination]}
         spaceBetween={10}

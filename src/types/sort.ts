@@ -1,5 +1,5 @@
 export enum Sorted {
-  DEFAULT,
-  ASC,
-  DESC
+  DEFAULT = 'asc,desc',
+  ASC = 'asc',
+  DESC = 'desc'
 }

@@ -1,0 +1,69 @@
+.btn {
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  line-height: 16px;
+  border-radius: 4px;
+  padding: 12px 40px;
+  cursor: pointer;
+  display: block;
+  &.fluid {
+    width: 100%;
+  }
+
+  @media (max-width: 1300px) {
+    padding: 8px 20px;
+    font-size: 12px;
+    line-height: 14px;
+    &.large {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &.primary {
+    background-color: rgb(25, 118, 210);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px,
+      rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+
+    color: #ffffff;
+    transition: 0.5s;
+    &:disabled {
+      background: grey !important;
+      box-shadow: unset !important;
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    &:hover {
+      background: rgb(21, 101, 192);
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px,
+        rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+    }
+  }
+
+  &.outlined {
+    background-color: transparent;
+    border: 1px solid rgba(52, 177, 247, 0.4);
+    color: #34b1f7;
+    transition: 0.5s;
+    &:hover {
+      border: 1px solid #ffffff;
+      color: #ffffff;
+    }
+  }
+  &.yellow {
+    border: 1px solid #ff9b3f;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 10px 20px rgba(52, 177, 247, 0.2));
+    border-radius: 4px;
+    background-color: transparent;
+    color: #ff9b3f;
+    padding: 12px 14px;
+    transition: 0.5s;
+    &:hover {
+      background-color: #ff9b3f;
+      color: #ffffff;
+    }
+  }
+}

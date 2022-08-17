@@ -10,6 +10,7 @@ export const BottomNav = () => {
     <nav className={styles.nav}>
       <div className={styles.list}>
         <NavLink
+          aria-label="Главная"
           to={'/'}
           className={({ isActive }) =>
             clsx(isActive ? styles.active : undefined, styles.list__item)
@@ -17,6 +18,7 @@ export const BottomNav = () => {
           <IconHome className="svg" />
         </NavLink>
         <NavLink
+          aria-label="Поиск"
           to={routes.search}
           className={({ isActive }) =>
             clsx(isActive ? styles.active : undefined, styles.list__item)
@@ -24,6 +26,7 @@ export const BottomNav = () => {
           <IconSearch className="svg svg-stroke" />
         </NavLink>
         <NavLink
+          aria-label="Избранное"
           to={routes.favorites}
           className={({ isActive }) =>
             clsx(isActive ? styles.active : undefined, styles.list__item)
@@ -31,6 +34,7 @@ export const BottomNav = () => {
           <IconLikeFill className={clsx(styles.icon_like, 'svg')} />
         </NavLink>
         <NavLink
+          aria-label="Корзина"
           to={routes.basket}
           className={({ isActive }) =>
             clsx(isActive ? styles.active : undefined, styles.list__item)
