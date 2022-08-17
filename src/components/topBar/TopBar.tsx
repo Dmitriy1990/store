@@ -16,6 +16,7 @@ import { useAppSelector } from '../../store/hooks';
 import { toggleView, changeSort } from '../../store/productsSlice';
 import { AppDispatch } from '../../store/store';
 import { useDispatch } from 'react-redux';
+import { wordDecline } from '../../utils/wordDecline';
 
 type Props = {
   count: number;
@@ -37,7 +38,9 @@ export const TopBar: FC<Props> = ({ count }: Props) => {
   );
   return (
     <div className={styles.top_bar}>
-      <h3 className={clsx('f18 usn')}>{count} товаров</h3>
+      <h3 className={clsx('f18 usn')}>
+        {count} {wordDecline(count, ['товар', 'товара', 'товаров'])}
+      </h3>
       <ul className={styles.filters}>
         <li className={styles.filters__item} onClick={() => dispatch(toggleView())}>
           {column ? <IconTile className="svg-stroke" /> : <IconColumn className="svg-stroke" />}
