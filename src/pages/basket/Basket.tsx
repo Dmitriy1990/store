@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { IconArrowLeft } from '../../assets';
 import styles from './style.module.scss';
 import { routes } from '../../constantes/routes';
-import ProductItem from '../../components/productItem';
+// import ProductItem from '../../components/productItem';
 import { Helmet } from 'react-helmet-async';
 
 export const Basket = () => {
@@ -20,11 +20,11 @@ export const Basket = () => {
           <span className="f28">Корзина</span>
         </Link>
       </div>
-      <div className="container container--nopad my20">
+      {/* <div className="container container--nopad my20">
         <ProductItem />
         <ProductItem />
         <ProductItem />
-      </div>
+      </div> */}
       <div className="container my20">
         <form>
           <textarea className={styles.textfield} placeholder="Комментарий..." />

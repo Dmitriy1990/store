@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import BottomNav from '../../components/bottomNav';
-import { Carousel } from '../../components/carousel/Carousel';
+// import { Carousel } from '../../components/carousel/Carousel';
 import ProductCard from '../../components/product';
 import TopBar from '../../components/topBar';
 import { useDispatch } from 'react-redux';
@@ -8,11 +8,12 @@ import { useAppSelector } from '../../store/hooks';
 import { fetchProducts, addFetchProducts } from '../../store/productsSlice';
 import { AppDispatch } from '../../store/store';
 import { Loader } from '../../components/ui/loader/Loader';
-import Lottie from 'react-lottie-player';
+
 import notFound from '../../assets/json/97179-no-data-found.json';
 import { Helmet } from 'react-helmet-async';
 import Button from '../../components/button';
 import { Sorted } from '../../types/sort';
+import Lottie from 'react-lottie-player';
 
 export const MainPage = () => {
   const { data, loading, column, totalRecords, sort, num } = useAppSelector(
@@ -31,9 +32,9 @@ export const MainPage = () => {
       </Helmet>
       <div className="mb50">
         <h2 className="f32 mb10">Главная</h2>
-        <div className="mb20">
+        {/* <div className="mb20">
           <Carousel />
-        </div>
+        </div> */}
         <div className="mb20">
           <TopBar count={totalRecords} />
         </div>

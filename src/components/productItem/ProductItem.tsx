@@ -15,7 +15,7 @@ export const ProductItem: FC<Props> = ({ favorites }: Props) => {
   }, [count]);
 
   const dec = useCallback(() => {
-    if (count > 0) {
+    if (count > 1) {
       setCount(count - 1);
     }
   }, [count]);
@@ -36,11 +36,13 @@ export const ProductItem: FC<Props> = ({ favorites }: Props) => {
         {!favorites ? (
           <div className={styles['product-bottom']}>
             <div className={styles.counter}>
-              <button className={styles.counter__btn} onClick={dec}>
+              <button className={styles.counter__btn} onClick={dec} data-testid="dec">
                 <IconDec />
               </button>
-              <span className={styles.counter__result}>{count}</span>
-              <button className={styles.counter__btn} onClick={add}>
+              <span className={styles.counter__result} data-testid="counter">
+                {count}
+              </span>
+              <button className={styles.counter__btn} onClick={add} data-testid="add">
                 <IconPlus />
               </button>
             </div>

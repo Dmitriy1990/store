@@ -54,6 +54,7 @@ export const products = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.fulfilled, (state, actions) => {
       state.loading = false;
+
       state.data = actions.payload[0];
       state.totalRecords = actions.payload[1];
       state.num = 3;
