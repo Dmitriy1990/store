@@ -20,4 +20,23 @@ describe('ProductItem', () => {
     fireEvent.click(btn as HTMLElement);
     expect(counter?.textContent).toBe('1');
   });
+  it('text add', () => {
+    const { queryByText, getByLabelText, asFragment, unmount } = render(<ProductItem />);
+    // const text = queryByText('nikE', { exact: false });
+    const text = queryByText(/nikE/i, { trim: true });
+    const label = getByLabelText('userName');
+    console.log('label', label);
+    expect(text as HTMLElement).toBeInTheDocument();
+    unmount();
+  });
+  describe('timer time', () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+      jest.runOnlyPendingTimers();
+      jest.useRealTimers();
+    });
+  });
 });

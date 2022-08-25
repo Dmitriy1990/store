@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Loader } from '../../components/ui/loader/Loader';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { IconArrowLeft } from '../../assets';
 import styles from './style.module.scss';
 import { routes } from '../../constantes/routes';
-// import ProductItem from '../../components/productItem';
+import ProductItem from '../../components/productItem';
 import { Helmet } from 'react-helmet-async';
 
-export const Basket = () => {
+export const Basket: FC = () => {
   return (
     <div className="mb50">
       <Helmet>
@@ -17,14 +17,16 @@ export const Basket = () => {
       <div className="container  my20">
         <Link className="back mb20" to={routes.main}>
           <IconArrowLeft className="back__icon" />
-          <span className="f28">Корзина</span>
+          <span className="f28" data-testid="basket">
+            Корзина
+          </span>
         </Link>
       </div>
-      {/* <div className="container container--nopad my20">
+      <div className="container container--nopad my20">
         <ProductItem />
         <ProductItem />
         <ProductItem />
-      </div> */}
+      </div>
       <div className="container my20">
         <form>
           <textarea className={styles.textfield} placeholder="Комментарий..." />

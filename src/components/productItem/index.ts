@@ -1,3 +1,1 @@
-import { ProductItem } from './ProductItem';
-
-export default ProductItem;
+export { ProductItem as default } from './ProductItem';

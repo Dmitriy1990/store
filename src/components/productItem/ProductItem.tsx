@@ -33,6 +33,10 @@ export const ProductItem: FC<Props> = ({ favorites }: Props) => {
         <p className="f16 cBlackDeep mb4">Nike</p>
         <p className="f16 cBlackDeep mb10">Air Force 1 Shadow Beige Pale Ivory</p>
         <div className="f18 weight500 mb10">10 800₽</div>
+        <label>
+          userName
+          <input type="text" />
+        </label>
         {!favorites ? (
           <div className={styles['product-bottom']}>
             <div className={styles.counter}>

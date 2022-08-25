@@ -4,7 +4,7 @@ import { Product } from '../types/product';
 import { RootState } from './store';
 
 export const fetchPurchases = createAsyncThunk('product/fetchPurchases', async function (thunkAPI) {
-  const response = await axios.get('http://localhost:3001/purchases');
+  const response = await axios.get('https://fake-server-ap.herokuapp.com/purchases');
   const data = await response.data;
   return data;
 });
@@ -12,7 +12,7 @@ export const fetchPurchases = createAsyncThunk('product/fetchPurchases', async f
 export const addToBasket = createAsyncThunk(
   'product/fetchPurchases',
   async function (item: Product) {
-    const response = await axios.post('http://localhost:3001/purchases', item);
+    const response = await axios.post('https://fake-server-ap.herokuapp.com/purchases', item);
     console.log('add to basket', response);
   }
 );

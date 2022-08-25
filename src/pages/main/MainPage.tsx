@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import BottomNav from '../../components/bottomNav';
-// import { Carousel } from '../../components/carousel/Carousel';
+import { Carousel } from '../../components/carousel/Carousel';
 import ProductCard from '../../components/product';
 import TopBar from '../../components/topBar';
 import { useDispatch } from 'react-redux';
@@ -25,6 +25,12 @@ export const MainPage = () => {
     dispatch(addFetchProducts({ num, sort }));
   };
 
+  const obj = {
+    name: 'John',
+    age: 22,
+    array: [1, 6, 8]
+  };
+
   return (
     <div className="container">
       <Helmet>
@@ -32,12 +38,13 @@ export const MainPage = () => {
       </Helmet>
       <div className="mb50">
         <h2 className="f32 mb10">Главная</h2>
-        {/* <div className="mb20">
+        <div className="mb20">
           <Carousel />
-        </div> */}
+        </div>
         <div className="mb20">
           <TopBar count={totalRecords} />
         </div>
+
         <div>
           {data.length && !loading ? (
             <div className="products mb50">

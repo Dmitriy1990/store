@@ -14,7 +14,12 @@ export const Search = () => {
           <button className={styles.btn} type="submit">
             <IconSearchPure />
           </button>
-          <input className={styles.field} type="text" />
+          <input
+            className={styles.field}
+            type="text"
+            placeholder="Поиск"
+            data-testid="search_input"
+          />
         </form>
       </div>
       <div className={styles['not-found']}>
