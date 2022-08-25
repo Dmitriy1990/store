@@ -5,7 +5,7 @@ import MainPage from './pages/main';
 import Basket from './pages/basket';
 import { routes } from './constantes/routes';
 import ProductPage from './pages/productPage';
-import { HelmetProvider } from 'react-helmet-async';
+
 import { ErrorBoundary } from 'react-error-boundary';
 import { ErrorHandler } from './components/errorHandler/ErrorHandler';
 import Search from './pages/search';
@@ -18,21 +18,19 @@ function App() {
   return (
     <ErrorBoundary FallbackComponent={ErrorHandler}>
       <ThemeProvider>
-        <HelmetProvider>
-          <BrowserRouter>
-            <Main>
-              <ScrollToTop />
-              <Routes>
-                <Route path={routes.main} element={<MainPage />} />
-                <Route path={routes.main + ':slug'} element={<ProductPage />} />
-                <Route path={routes.basket} element={<Basket />} />
-                <Route path={routes.search} element={<Search />} />
-                <Route path={routes.favorites} element={<Favorites />} />
-              </Routes>
-              <BottomNav />
-            </Main>
-          </BrowserRouter>
-        </HelmetProvider>
+        <BrowserRouter>
+          <Main>
+            <ScrollToTop />
+            <Routes>
+              <Route path={routes.main} element={<MainPage />} />
+              <Route path={routes.main + ':slug'} element={<ProductPage />} />
+              <Route path={routes.basket} element={<Basket />} />
+              <Route path={routes.search} element={<Search />} />
+              <Route path={routes.favorites} element={<Favorites />} />
+            </Routes>
+            <BottomNav />
+          </Main>
+        </BrowserRouter>
       </ThemeProvider>
     </ErrorBoundary>
   );

@@ -6,7 +6,7 @@ import { routes } from '../../constantes/routes';
 import { AppDispatch } from '../../store/store';
 import { clear, fetchProduct } from '../../store/productSlice';
 import { addToBasket, amountProduct } from '../../store/basketSlice';
-import { Helmet } from 'react-helmet-async';
+
 import styles from './style.module.scss';
 import { useAppSelector } from '../../store/hooks';
 import { Loader } from '../../components/ui/loader/Loader';
@@ -33,12 +33,6 @@ export const ProductPage = () => {
 
   return (
     <div className="container mb80">
-      {data ? (
-        <Helmet>
-          <title>{data.description}</title>
-        </Helmet>
-      ) : null}
-
       <div className={styles.head}>
         <Link to={routes.main} className={styles.head__back}>
           <IconArrowLeft />

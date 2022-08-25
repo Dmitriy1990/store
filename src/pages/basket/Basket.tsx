@@ -6,14 +6,10 @@ import { IconArrowLeft } from '../../assets';
 import styles from './style.module.scss';
 import { routes } from '../../constantes/routes';
 import ProductItem from '../../components/productItem';
-import { Helmet } from 'react-helmet-async';
 
 export const Basket: FC = () => {
   return (
     <div className="mb50">
-      <Helmet>
-        <title>Корзина</title>
-      </Helmet>
       <div className="container  my20">
         <Link className="back mb20" to={routes.main}>
           <IconArrowLeft className="back__icon" />
