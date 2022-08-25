@@ -24,7 +24,7 @@ export const Search = () => {
       </div>
       <div className={styles['not-found']}>
         <IconSearchBig className={styles['not-found__icon']} />
-        <h4 className="f28 cLight">Товары не найдены</h4>
+        {/* <h4 className="f28 cLight">Товары не найдены</h4> */}
       </div>
     </div>
   );
