@@ -17,7 +17,7 @@ export const Search = () => {
           <input
             className={styles.field}
             type="text"
-            placeholder="Поиск"
+            placeholder="Введите"
             data-testid="search_input"
           />
         </form>

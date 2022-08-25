@@ -44,7 +44,6 @@ export const MainPage = () => {
         <div className="mb20">
           <TopBar count={totalRecords} />
         </div>
-
         <div>
           {data.length && !loading ? (
             <div className="products mb50">
