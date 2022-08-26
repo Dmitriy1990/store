@@ -1,8 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
-import BottomNav from '../../components/bottomNav';
-import { Carousel } from '../../components/carousel/Carousel';
-import ProductCard from '../../components/product';
-import TopBar from '../../components/topBar';
+import React, { useContext, useEffect, useState, Suspense, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../store/hooks';
 import { fetchProducts, addFetchProducts } from '../../store/productsSlice';
@@ -10,9 +6,14 @@ import { AppDispatch } from '../../store/store';
 import { Loader } from '../../components/ui/loader/Loader';
 
 import notFound from '../../assets/json/97179-no-data-found.json';
-import Button from '../../components/button';
 import { Sorted } from '../../types/sort';
-import Lottie from 'react-lottie-player';
+const TopBar = lazy(() => import('../../components/topBar'));
+const Button = lazy(() => import('../../components/button'));
+const ProductCard = lazy(() => import('../../components/product'));
+const Lottie = lazy(() => import('react-lottie-player'));
+const Carousel = lazy(() =>
+  import('../../components/carousel/Carousel').then((c) => ({ default: c.Carousel }))
+);
 
 export const MainPage = () => {
   const { data, loading, column, totalRecords, sort, num } = useAppSelector(
@@ -24,43 +25,47 @@ export const MainPage = () => {
     dispatch(addFetchProducts({ num, sort }));
   };
 
-  const obj = {
-    name: 'John',
-    age: 22,
-    array: [1, 6, 8]
-  };
-
   return (
     <div className="container">
       <div className="mb50">
         <h2 className="f32 mb10">Главная</h2>
         <div className="mb20">
-          <Carousel />
+          <Suspense fallback={<div></div>}>
+            <Carousel />
+          </Suspense>
         </div>
         <div className="mb20">
-          <TopBar count={totalRecords} />
+          <Suspense fallback={<div></div>}>
+            <TopBar count={totalRecords} />
+          </Suspense>
         </div>
         <div>
           {data.length && !loading ? (
             <div className="products mb50">
-              {data.map((product) => (
-                <ProductCard key={product.id} column={column} item={product} />
-              ))}
+              <Suspense fallback={<div></div>}>
+                {data.map((product) => (
+                  <ProductCard key={product.id} column={column} item={product} />
+                ))}
+              </Suspense>
             </div>
           ) : loading ? (
             <Loader />
           ) : (
-            <Lottie loop={false} animationData={notFound} play className="lottie-loader" />
+            <Suspense fallback={<div></div>}>
+              <Lottie loop={false} animationData={notFound} play className="lottie-loader" />
+            </Suspense>
           )}
           {data.length < totalRecords ? (
             <div className="mb80">
-              <Button
-                className="ml-auto mr-auto"
-                disabled={loading}
-                text="Показать еще"
-                variant="primary"
-                onClick={addProduct}
-              />
+              <Suspense fallback={<div></div>}>
+                <Button
+                  className="ml-auto mr-auto"
+                  disabled={loading}
+                  text="Показать еще"
+                  variant="primary"
+                  onClick={addProduct}
+                />
+              </Suspense>
             </div>
           ) : null}
         </div>

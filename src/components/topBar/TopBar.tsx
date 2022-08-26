@@ -1,4 +1,4 @@
-import React, { FC, useState, useCallback } from 'react';
+import React, { FC, useState, useCallback, Suspense, lazy } from 'react';
 import {
   IconArrows,
   IconColumn,
@@ -9,7 +9,6 @@ import {
 } from '../../assets';
 import clsx from 'clsx';
 import styles from './style.module.scss';
-import Filters from '../filters';
 import Sort from '../sort';
 import { Sorted } from '../../types/sort';
 import { useAppSelector } from '../../store/hooks';
@@ -17,6 +16,8 @@ import { toggleView, changeSort } from '../../store/productsSlice';
 import { AppDispatch } from '../../store/store';
 import { useDispatch } from 'react-redux';
 import { wordDecline } from '../../utils/wordDecline';
+
+const Filters = lazy(() => import('../filters'));
 
 type Props = {
   count: number;
@@ -62,7 +63,9 @@ export const TopBar: FC<Props> = ({ count }: Props) => {
           <IconFilter className="svg" />
         </li>
       </ul>
-      <Filters open={openFilter} setOpen={setOpenFilter} />
+      <Suspense fallback={<div></div>}>
+        <Filters open={openFilter} setOpen={setOpenFilter} />
+      </Suspense>
       <Sort open={openSort} setOpen={setOpenSort} sort={sort} sortedType={sortedType} />
     </div>
   );
