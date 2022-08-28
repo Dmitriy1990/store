@@ -4,8 +4,10 @@ import styles from './style.module.scss';
 import { IconBasket, IconHome, IconLikeFill, IconSearch } from '../../assets';
 import { NavLink } from 'react-router-dom';
 import { routes } from '../../constantes/routes';
+import { useAppSelector } from '../../store/hooks';
 
 export const BottomNav = () => {
+  const { data } = useAppSelector((state) => state.basket);
   return (
     <nav className={styles.nav}>
       <div className={styles.list}>
@@ -40,7 +42,9 @@ export const BottomNav = () => {
             clsx(isActive ? styles.active : undefined, styles.list__item)
           }>
           <IconBasket className="svg" />
-          <span className={styles.basket}>2</span>
+          {data.length ? (
+            <span className={styles.basket}>{data.length ? data.length : '9+'}</span>
+          ) : null}
         </NavLink>
       </div>
     </nav>

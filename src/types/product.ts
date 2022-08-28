@@ -7,4 +7,5 @@ export interface Product {
   oldPrice: number;
   image: string;
   fullDescription: string;
+  count: number;
 }
