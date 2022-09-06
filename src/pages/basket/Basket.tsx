@@ -27,6 +27,10 @@ export const Basket: FC = () => {
     dispatch(amountProduct({ id: data.id, count }));
   };
 
+  const func = () => {
+    return 'asd';
+  };
+
   return (
     <div className="mb50">
       <div className="container  my20">

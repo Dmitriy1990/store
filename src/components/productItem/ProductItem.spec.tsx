@@ -27,7 +27,7 @@ describe('ProductItem', () => {
   });
 
   it('Counter value if button click dec', () => {
-    const { queryByTestId } = render(<ProductItem data={mock} onDelete={(id) => false} />);
+    const { queryByTestId } = render(<ProductItem data={mock} onDelete={() => undefined} />);
     const btn = queryByTestId('dec');
     const counter = queryByTestId('counter');
     fireEvent.click(btn as HTMLElement);
