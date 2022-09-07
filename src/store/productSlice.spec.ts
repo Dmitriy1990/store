@@ -1,11 +1,6 @@
-import axios from 'axios';
-import { Sorted } from '../types/sort';
-import { fetchProducts } from './productsSlice';
 import product, { clear, ProductType, fetchProduct } from './productSlice';
-import data from '../data/index.json';
 import { getStoreWithState } from './store';
 import { Product } from '../types/product';
-import { EnhancedStore } from '@reduxjs/toolkit';
 
 const stateWithBasket = (data: { data: Product | null; loading: boolean }) => ({
   products: {
@@ -52,21 +47,30 @@ describe('Product reducer', () => {
   it('thunk', async () => {
     const dispatch = jest.fn();
     const initialState: ProductType = { data: mock, loading: false };
-    const store = getStoreWithState();
-    const state = stateWithBasket(initialState);
-    const thunk = fetchProduct(3);
+    const thunk = fetchProduct(1);
     await thunk(dispatch, () => initialState, undefined);
     const { calls } = dispatch.mock;
     expect(calls).toHaveLength(2);
     expect(calls[0][0].type).toEqual('product/fetchProduct/pending');
     expect(calls[1][0].type).toEqual('product/fetchProduct/fulfilled');
+    expect(calls[1][0].payload).toEqual(mock);
+  });
+
+  it('thunk rejected', async () => {
+    const dispatch = jest.fn();
+    const thunk = fetchProduct(1000);
+    await thunk(dispatch, () => ({}), undefined);
+    const { calls } = dispatch.mock;
+    expect(calls).toHaveLength(2);
+    expect(calls[0][0].type).toEqual('product/fetchProduct/pending');
+    expect(calls[1][0].type).toEqual('product/fetchProduct/rejected');
+    expect(calls[1][0].payload).toEqual(undefined);
   });
 
   it('test state product', async () => {
     const initialState: ProductType = { data: mock, loading: false };
     const state = stateWithBasket(initialState);
     const store = getStoreWithState(state as any);
-
     await store.dispatch(fetchProduct(4));
     expect(store.getState().basket).toEqual(initialState);
   });
@@ -75,7 +79,6 @@ describe('Product reducer', () => {
     const initialState: ProductType = { data: null, loading: false };
     const state = stateWithBasket(initialState);
     const store = getStoreWithState(state as any);
-
     await store.dispatch(fetchProduct.rejected(null, '', 3));
     expect(store.getState().basket).toEqual(initialState);
   });
