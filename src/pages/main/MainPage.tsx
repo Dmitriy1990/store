@@ -52,7 +52,7 @@ export const MainPage = () => {
             <Loader />
           ) : (
             <Suspense fallback={<div></div>}>
-              <Lottie loop={false} animationData={notFound} play className="lottie-loader" />
+              <Lottie loop={false} animationData={notFound} play />
             </Suspense>
           )}
           {data.length < totalRecords ? (

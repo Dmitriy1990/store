@@ -1,30 +1,22 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { Product } from '../types/product';
+import { Product, ProductProps } from '../types/product';
 import axios from 'axios';
 import { Sorted } from '../types/sort';
-
-type Props = {
-  sort: Sorted;
-  num: number;
-};
+import { getProducts } from '../api/api';
 
 const LIMIT = 3;
 
 export const fetchProducts = createAsyncThunk(
   'product/fetchProducts',
-  async function (props: Props, thunkAPI) {
-    const response = await axios.get(
-      `http://localhost:3001/product?_sort=price&_order=${props.sort}&_start=${props.num}&_limit=${LIMIT}`
-    );
-    const data = await response.data;
-    const count = response.headers['x-total-count'];
-    return [data, count];
+  async function (props: ProductProps, thunkAPI) {
+    const response = await getProducts(props);
+    return response;
   }
 );
 
 export const addFetchProducts = createAsyncThunk(
   'product/addFetchProducts',
-  async function (props: Props, thunkAPI) {
+  async function (props: ProductProps, thunkAPI) {
     const response = await axios.get(
       `http://localhost:3001/product?_sort=price&_order=${props.sort}&_start=${props.num}&_limit=${LIMIT}`
     );
@@ -55,8 +47,8 @@ export const products = createSlice({
     builder.addCase(fetchProducts.fulfilled, (state, actions) => {
       state.loading = false;
 
-      state.data = actions.payload[0];
-      state.totalRecords = actions.payload[1];
+      state.data = actions.payload.data;
+      state.totalRecords = actions.payload.count;
       state.num = 3;
     });
     builder.addCase(fetchProducts.rejected, (state, actions) => {

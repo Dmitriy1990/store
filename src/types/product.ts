@@ -1,3 +1,5 @@
+import { Sorted } from './sort';
+
 export interface Product {
   id: number;
   title: string;
@@ -7,4 +9,10 @@ export interface Product {
   oldPrice: number;
   image: string;
   fullDescription: string;
+  count: number;
+}
+
+export interface ProductProps {
+  sort: Sorted;
+  num: number;
 }

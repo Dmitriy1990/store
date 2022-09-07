@@ -21,7 +21,6 @@ export const ProductPage = () => {
 
   useEffect(() => {
     if (slug) dispatch(fetchProduct(parseInt(slug)));
-    dispatch(amountProduct(3));
     return () => {
       dispatch(clear());
     };

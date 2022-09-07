@@ -16,9 +16,9 @@ export const Favorites = () => {
         </Link>
       </div>
       <div className="container container--nopad my20">
+        {/* <ProductItem favorites />
         <ProductItem favorites />
-        <ProductItem favorites />
-        <ProductItem favorites />
+        <ProductItem favorites /> */}
       </div>
     </div>
   );
